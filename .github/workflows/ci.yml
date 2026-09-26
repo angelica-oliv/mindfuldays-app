@@ -1,0 +1,40 @@
+name: MindfulDays Android CI
+
+on:
+  push:
+    branches: [ "main", "develop", "step-*" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17 (JDK)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Conceder Permissões de Execução ao Gradle Wrapper
+        run: chmod +x gradlew
+
+      - name: Executar Lint e Análise Estática
+        run: ./gradlew lintDebug
+
+      - name: Executar Testes Unitários
+        run: ./gradlew testDebugUnitTest
+
+      - name: Compilar o Aplicativo (Build APK)
+        run: ./gradlew assembleDebug
+
+      - name: Upload dos Artefatos de Build (APK)
+        uses: actions/upload-artifact@v4
+        with:
+          name: MindfulDays-Debug-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
