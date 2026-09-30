@@ -39,6 +39,15 @@ O **MindfulDays** é um aplicativo minimalista e sereno de meditação guiada ba
 
 ---
 
+## 🤖 Diretrizes para Agentes de IA (`AGENTS.md`)
+
+Este repositório conta com um arquivo [`AGENTS.md`](./AGENTS.md) na raiz do projeto. Ele atua como fonte de verdade para agentes de IA e ferramentas de assistência de código (como o Gemini no Android Studio), garantindo:
+* **Fidelidade Arquitetural**: Respeito estrito aos padrões MVVM e Clean Architecture em Jetpack Compose.
+* **Consistência Visual**: Aderência aos tokens de design e à paleta de cores oficial do Material 3.
+* **Regras de Negócio e Guardrails**: Rotação das 9 atitudes, tratamento offline da API Gemini e proibição de hardcode de chaves secretas.
+
+---
+
 ## 🧭 Branches para Acompanhamento Passo a Passo (Didática para Alunos)
 
 Para facilitar o acompanhamento do workshop, cada etapa do desenvolvimento está salva em uma branch isolada e 100% funcional. Caso tenha alguma dificuldade durante a codificação, basta fazer o checkout da branch da etapa desejada:
@@ -47,7 +56,7 @@ Para facilitar o acompanhamento do workshop, cada etapa do desenvolvimento está
 # Etapa 1: Setup do projeto, Material Design 3, tema e tokens visuais
 git checkout step-01-setup
 
-# Etapa 2: Implementação das 9 Atitudes, Telas Compose, Timer e Gemini API
+# Etapa 2: Diretrizes com AGENTS.md, 9 Atitudes, Telas Compose, Timer e Gemini API
 git checkout step-02-compose-logic
 
 # Etapa 3: Testes Unitários, Testes de UI (Compose Test) e Pipeline CI/CD
