@@ -11,5 +11,4 @@
     <string name="settings_title">Mindfulness Settings</string>
     <string name="daily_reminder">Daily Attitude Reminder</string>
     <string name="meditation_reminder">Meditation Reminder</string>
-    <string name="gemini_api_key">Gemini API Key</string>
 </resources>
