@@ -21,8 +21,7 @@ data class MindfulnessUiState(
     val isTimerRunning: Boolean = false,
     val isTimerFinished: Boolean = false,
     val dailyReminderEnabled: Boolean = true,
-    val meditationReminderEnabled: Boolean = false,
-    val geminiApiKey: String = ""
+    val meditationReminderEnabled: Boolean = false
 )
 
 class MindfulnessViewModel(
@@ -89,11 +88,6 @@ class MindfulnessViewModel(
                 isTimerFinished = false
             )
         }
-    }
-
-    fun updateApiKey(apiKey: String) {
-        geminiService.apiKey = apiKey
-        _uiState.update { it.copy(geminiApiKey = apiKey) }
     }
 
     fun toggleDailyReminder(enabled: Boolean) {

@@ -1,5 +1,6 @@
 package dev.mindfuldays.app.data.remote
 
+import dev.mindfuldays.app.BuildConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
@@ -7,11 +8,11 @@ import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
 
-class GeminiApiService(var apiKey: String = "") {
+class GeminiApiService(private val apiKey: String = BuildConfig.GEMINI_API_KEY) {
 
     suspend fun generateReflection(attitudeTitle: String): String = withContext(Dispatchers.IO) {
         if (apiKey.isBlank()) {
-            return@withContext "Insira sua API Key do Gemini nas configurações para gerar reflexões personalizadas."
+            return@withContext "Configure sua GEMINI_API_KEY no arquivo local.properties para gerar reflexões personalizadas."
         }
 
         try {

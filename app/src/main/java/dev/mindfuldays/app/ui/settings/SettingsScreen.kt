@@ -6,7 +6,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -16,15 +16,10 @@ import androidx.compose.ui.unit.dp
 fun SettingsScreen(
     dailyReminderEnabled: Boolean,
     meditationReminderEnabled: Boolean,
-    apiKey: String,
     onToggleDailyReminder: (Boolean) -> Unit,
     onToggleMeditationReminder: (Boolean) -> Unit,
-    onSaveApiKey: (String) -> Unit,
     onNavigateBack: () -> Unit
 ) {
-    var keyInput by remember(apiKey) { mutableStateOf(apiKey) }
-    var keySavedMessage by remember { mutableStateOf(false) }
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -124,9 +119,9 @@ fun SettingsScreen(
                 }
             }
 
-            // Seção Gemini API
+            // Seção Sobre o App
             Text(
-                text = "Integração com Gemini API",
+                text = "Sobre o App",
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.primary
             )
@@ -135,47 +130,22 @@ fun SettingsScreen(
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
-                Column(modifier = Modifier.padding(16.dp)) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                ) {
                     Text(
-                        text = "Insira sua API Key obtida no Google AI Studio (aistudio.google.com):",
-                        style = MaterialTheme.typography.bodyMedium
+                        text = "MindfulDays v1.0",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.primary
                     )
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    OutlinedTextField(
-                        value = keyInput,
-                        onValueChange = {
-                            keyInput = it
-                            keySavedMessage = false
-                        },
-                        label = { Text("Chave de API do Gemini") },
-                        placeholder = { Text("AIzaSy...") },
-                        modifier = Modifier.fillMaxWidth(),
-                        singleLine = true
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "Baseado nas 9 Atitudes de Mindfulness de Jon Kabat-Zinn com suporte a IA generativa.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                     )
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Button(
-                        onClick = {
-                            onSaveApiKey(keyInput.trim())
-                            keySavedMessage = true
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
-                    ) {
-                        Text("Salvar Chave")
-                    }
-
-                    if (keySavedMessage) {
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Text(
-                            text = "✓ Chave salva com sucesso!",
-                            color = MaterialTheme.colorScheme.primary,
-                            style = MaterialTheme.typography.bodySmall
-                        )
-                    }
                 }
             }
         }
