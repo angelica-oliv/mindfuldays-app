@@ -21,7 +21,7 @@ O **MindfulDays** é um aplicativo minimalista e sereno de meditação guiada ba
 * **Atitude do Dia**: Rotação diária automática entre as 9 atitudes fundamentais com título e mensagem explicativa.
 * **Reflexões com Gemini AI**: Geração de reflexões e conselhos inspiradores personalizados em tempo real através da API do Gemini (Google AI).
 * **Timer de Meditação**: Contador circular regressivo minimalista de 10 minutos com controles de Play, Pause e Reset.
-* **Configurações & Lembretes**: Gerenciamento de alertas diários e inserção segura de sua chave de API do Gemini.
+* **Configurações & Lembretes**: Gerenciamento de lembretes diários da atitude e alertas para a prática de meditação.
 * **Internacionalização (i18n)**: Suporte completo para Português (Brasil) e Inglês.
 
 ---
@@ -99,13 +99,18 @@ git checkout main
 
 ## 🤖 Configurando a Chave da Gemini API
 
-1. Obtenha uma chave gratuita no [Google AI Studio](https://aistudio.google.com/).
-2. Abra o aplicativo no seu celular ou emulador.
-3. Clique no ícone de engrenagem ⚙️ no canto superior direito para abrir as **Configurações**.
-4. Cole sua chave no campo **Chave de API do Gemini** e clique em **Salvar Chave**.
-5. Volte para a Home e clique em **✨ Nova Reflexão (Gemini IA)**!
+Por boas práticas de segurança e arquitetura em Android, chaves de API **nunca** devem ser expostas na interface do usuário (UI) nem versionadas no Git.
 
-> *Nota: Caso execute o app sem uma chave configurada ou sem conexão de rede, o aplicativo entrará graciosamente em modo offline com reflexões locais.*
+1. Obtenha uma chave gratuita no [Google AI Studio](https://aistudio.google.com/).
+2. Abra o arquivo `local.properties` na raiz do seu projeto (já ignorado pelo `.gitignore`).
+3. Adicione a seguinte linha:
+   ```properties
+   GEMINI_API_KEY=AIzaSy...
+   ```
+4. Ao compilar o projeto (`./gradlew assembleDebug`), o Gradle injetará o valor de forma segura via `BuildConfig.GEMINI_API_KEY` diretamente no serviço `GeminiApiService`.
+5. Execute o app e clique em **✨ Nova Reflexão (Gemini IA)**!
+
+> *Nota: Caso execute o app sem configurar a chave no `local.properties` ou sem conexão de rede, o aplicativo entrará graciosamente em modo offline com reflexões locais inspiradoras.*
 
 ---
 
