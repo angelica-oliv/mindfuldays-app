@@ -76,10 +76,8 @@ fun MindfulDaysApp(viewModel: MindfulnessViewModel) {
                 SettingsScreen(
                     dailyReminderEnabled = uiState.dailyReminderEnabled,
                     meditationReminderEnabled = uiState.meditationReminderEnabled,
-                    apiKey = uiState.geminiApiKey,
                     onToggleDailyReminder = { viewModel.toggleDailyReminder(it) },
                     onToggleMeditationReminder = { viewModel.toggleMeditationReminder(it) },
-                    onSaveApiKey = { viewModel.updateApiKey(it) },
                     onNavigateBack = { currentScreen = AppScreen.HOME }
                 )
             }
