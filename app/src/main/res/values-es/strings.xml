@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">MindfulDays</string>
+    <string name="app_title">MINDFULDAYS</string>
+    <string name="attitude_counter">Actitud %1$d de %2$d</string>
+
+    <!-- Home Screen -->
+    <string name="default_reflection">“Respira profundo y trae tu atención al momento presente.”</string>
+    <string name="btn_new_reflection">✨ Nueva Reflexión (Gemini IA)</string>
+    <string name="btn_start_timer">⏱️ Iniciar Temporizador de Meditación</string>
+
+    <!-- Timer Screen -->
+    <string name="timer_title">Temporizador de Meditación</string>
+    <string name="timer_subtitle">Concéntrate en la respiración</string>
+    <string name="timer_session_guided">• SESIÓN GUIADA</string>
+    <string name="timer_status_completed">Completado</string>
+    <string name="timer_status_running">En curso</string>
+    <string name="timer_status_paused">Pausado</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Configuración</string>
+    <string name="settings_section_reminders">Recordatorios Diarios</string>
+    <string name="settings_daily_reminder">Recordatorio de Actitud Diaria</string>
+    <string name="settings_meditate_reminder">Recordatorio para Meditar</string>
+    <string name="settings_section_about">Acerca de la App</string>
+    <string name="settings_version_info">Versión 1.0 • 9 Actitudes de Jon Kabat-Zinn</string>
+
+    <!-- Accessibility Content Descriptions -->
+    <string name="cd_settings">Configuración</string>
+    <string name="cd_back">Volver</string>
+    <string name="cd_reset">Reiniciar</string>
+    <string name="cd_play">Iniciar</string>
+    <string name="cd_pause">Pausar</string>
+
+    <!-- Offline Fallback -->
+    <string name="offline_reflection">Conectado en modo offline. Practica la reflexión: Respira profundo y enfoca tu atención en el momento presente.</string>
+    <string name="default_fallback_reflection">Acoge el momento presente exactamente como se manifiesta.</string>
+
+    <!-- The 9 Attitudes -->
+    <string name="attitude_1_name">Mente de Principiante</string>
+    <string name="attitude_1_desc">Mira las cosas como si fuera la primera vez, libre de expectativas.</string>
+
+    <string name="attitude_2_name">No Juicio</string>
+    <string name="attitude_2_desc">Observa tus pensamientos y sentimientos sin etiquetarlos como buenos o malos.</string>
+
+    <string name="attitude_3_name">Aceptación</string>
+    <string name="attitude_3_desc">Reconoce y acoge el momento presente exactamente como es.</string>
+
+    <string name="attitude_4_name">Desapego</string>
+    <string name="attitude_4_desc">Deja ir los pensamientos y deseos que intentan atrapar tu atención.</string>
+
+    <string name="attitude_5_name">Confianza</string>
+    <string name="attitude_5_desc">Desarrolla una creencia básica en ti mismo y en las señales de tu cuerpo.</string>
+
+    <string name="attitude_6_name">No Esforzarse</string>
+    <string name="attitude_6_desc">Abandona la necesidad constante de alcanzar un resultado inmediato.</string>
+
+    <string name="attitude_7_name">Paciencia</string>
+    <string name="attitude_7_desc">Comprende que ciertas cosas necesitan tiempo para desarrollarse.</string>
+
+    <string name="attitude_8_name">Gratitud</string>
+    <string name="attitude_8_desc">Aprecia el momento presente y valora lo que ya posees.</string>
+
+    <string name="attitude_9_name">Generosidad</string>
+    <string name="attitude_9_desc">Ofrece atención, cariño y presencia con el corazón abierto.</string>
+</resources>

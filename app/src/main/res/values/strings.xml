@@ -1,14 +1,65 @@
 <resources>
     <string name="app_name">MindfulDays</string>
-    <string name="attitude_counter">Attitude %1$d of 9</string>
-    <string name="generate_reflection">✨ New Reflection (Gemini AI)</string>
-    <string name="start_timer">⏱️ Start Meditation Timer</string>
-    <string name="settings">⚙️ Settings</string>
+    <string name="app_title">MINDFULDAYS</string>
+    <string name="attitude_counter">Attitude %1$d of %2$d</string>
+
+    <!-- Home Screen -->
+    <string name="default_reflection">“Take a deep breath and bring your awareness to the present moment.”</string>
+    <string name="btn_new_reflection">✨ New Reflection (Gemini AI)</string>
+    <string name="btn_start_timer">⏱️ Start Meditation Timer</string>
+
+    <!-- Timer Screen -->
     <string name="timer_title">Meditation Timer</string>
-    <string name="play">Play</string>
-    <string name="pause">Pause</string>
-    <string name="reset">Reset</string>
-    <string name="settings_title">Mindfulness Settings</string>
-    <string name="daily_reminder">Daily Attitude Reminder</string>
-    <string name="meditation_reminder">Meditation Reminder</string>
+    <string name="timer_subtitle">Focus on your breath</string>
+    <string name="timer_session_guided">• GUIDED SESSION</string>
+    <string name="timer_status_completed">Completed</string>
+    <string name="timer_status_running">In progress</string>
+    <string name="timer_status_paused">Paused</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_reminders">Daily Reminders</string>
+    <string name="settings_daily_reminder">Daily Attitude Reminder</string>
+    <string name="settings_meditate_reminder">Meditation Reminder</string>
+    <string name="settings_section_about">About the App</string>
+    <string name="settings_version_info">Version 1.0 • 9 Jon Kabat-Zinn Attitudes</string>
+
+    <!-- Accessibility Content Descriptions -->
+    <string name="cd_settings">Settings</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_reset">Reset</string>
+    <string name="cd_play">Start</string>
+    <string name="cd_pause">Pause</string>
+
+    <!-- Offline Fallback -->
+    <string name="offline_reflection">Connected in offline mode. Practice this reflection: Take a deep breath and bring your attention to the present moment.</string>
+    <string name="default_fallback_reflection">Welcome the present moment exactly as it unfolds.</string>
+
+    <!-- The 9 Attitudes -->
+    <string name="attitude_1_name">Beginner\'s Mind</string>
+    <string name="attitude_1_desc">Look at things as if for the first time, free from expectations.</string>
+
+    <string name="attitude_2_name">Non-Judging</string>
+    <string name="attitude_2_desc">Observe your thoughts and feelings without labeling them good or bad.</string>
+
+    <string name="attitude_3_name">Acceptance</string>
+    <string name="attitude_3_desc">Acknowledge and embrace the present moment exactly as it is.</string>
+
+    <string name="attitude_4_name">Letting Go</string>
+    <string name="attitude_4_desc">Release thoughts and desires that attempt to capture your attention.</string>
+
+    <string name="attitude_5_name">Trust</string>
+    <string name="attitude_5_desc">Develop a basic belief in yourself and in your body\'s signals.</string>
+
+    <string name="attitude_6_name">Non-Striving</string>
+    <string name="attitude_6_desc">Abandon the constant need to achieve an immediate result.</string>
+
+    <string name="attitude_7_name">Patience</string>
+    <string name="attitude_7_desc">Understand that certain things need time to develop naturally.</string>
+
+    <string name="attitude_8_name">Gratitude</string>
+    <string name="attitude_8_desc">Appreciate the present moment and value what you already have.</string>
+
+    <string name="attitude_9_name">Generosity</string>
+    <string name="attitude_9_desc">Offer attention, warmth, and presence with an open heart.</string>
 </resources>

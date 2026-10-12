@@ -4,25 +4,36 @@ Bem-vindo ao repositório do aplicativo **MindfulDays**, desenvolvido durante o 
 
 ---
 
+## 📱 Protótipos de Interface (Google Stitch)
+
+As telas do aplicativo foram concebidas no **[Google Stitch](https://stitch.withgoogle.com/)**, servindo como referência visual e design tokens para a implementação com Jetpack Compose:
+
+| Tela Inicial (Home) | Timer de Meditação | Configurações |
+| :---: | :---: | :---: |
+| <img src="screenshots/home_screen.png" width="220" alt="Tela Inicial do MindfulDays" /> | <img src="screenshots/timer_screen.png" width="220" alt="Timer de Meditação" /> | <img src="screenshots/settings_screen.png" width="220" alt="Tela de Configurações" /> |
+
+---
+
 ## 🎯 Sobre o Aplicativo
 
 O **MindfulDays** é um aplicativo minimalista e sereno de meditação guiada baseado nas **9 Atitudes de Mindfulness de Jon Kabat-Zinn**:
-1. **Mente de Principiante**
-2. **Não-Julgamento**
-3. **Aceitação**
-4. **Desapego**
-5. **Confiança**
-6. **Não-Esforço**
-7. **Paciência**
-8. **Gratidão**
-9. **Generosidade**
+1. **Mente de Principiante** (*Beginner's Mind*)
+2. **Não-Julgamento** (*Non-Judging*)
+3. **Aceitação** (*Acceptance*)
+4. **Desapego** (*Letting Go*)
+5. **Confiança** (*Trust*)
+6. **Não-Esforço** (*Non-Striving*)
+7. **Paciência** (*Patience*)
+8. **Gratidão** (*Gratitude*)
+9. **Generosidade** (*Generosity*)
 
 ### Principais Funcionalidades:
-* **Atitude do Dia**: Rotação diária automática entre as 9 atitudes fundamentais com título e mensagem explicativa.
-* **Reflexões com Gemini AI**: Geração de reflexões e conselhos inspiradores personalizados em tempo real através da API do Gemini (Google AI).
-* **Timer de Meditação**: Contador circular regressivo minimalista de 10 minutos com controles de Play, Pause e Reset.
-* **Configurações & Lembretes**: Gerenciamento de lembretes diários da atitude e alertas para a prática de meditação.
-* **Internacionalização (i18n)**: Suporte completo para Português (Brasil) e Inglês.
+* **Atitude do Dia**: Rotação diária automática entre as 9 atitudes fundamentais baseada no dia do ano (`(dayOfYear - 1) % 9`).
+* **Reflexões com Gemini AI**: Geração de reflexões personalizadas em tempo real via **Google Gemini API** (`gemini-3.8-flash`), adaptadas ao idioma do sistema (Português, Inglês ou Espanhol).
+* **Timer de Meditação**: Contador circular minimalista de 10 minutos com controles de Play, Pause e Reset.
+* **Configurações & Lembretes**: Notificações e lembretes diários para manter a prática ativa.
+* **Internacionalização (i18n)**: Suporte completo e nativo a **Português**, **Inglês** e **Espanhol** via `strings.xml`.
+* **Qualidade de Software**: Suíte de testes unitários com JUnit e testes E2E com Compose Robot Pattern.
 
 ---
 
@@ -35,16 +46,16 @@ O **MindfulDays** é um aplicativo minimalista e sereno de meditação guiada ba
 | **Secondary** | Areia Muted | `#E8DFD8` |
 | **Background** | Off-White Calmo | `#FBF9F5` |
 | **Surface** | Branco Puro | `#FFFFFF` |
-| **Text / OnSurface**| Verde Floresta Escuro | `#2C3E35` |
+| **Text / OnSurface** | Verde Floresta Escuro | `#2C3E35` |
 
 ---
 
 ## 🤖 Diretrizes para Agentes de IA (`AGENTS.md`)
 
 Este repositório conta com um arquivo [`AGENTS.md`](./AGENTS.md) na raiz do projeto. Ele atua como fonte de verdade para agentes de IA e ferramentas de assistência de código (como o Gemini no Android Studio), garantindo:
-* **Fidelidade Arquitetural**: Respeito estrito aos padrões MVVM e Clean Architecture em Jetpack Compose.
-* **Consistência Visual**: Aderência aos tokens de design e à paleta de cores oficial do Material 3.
-* **Regras de Negócio e Guardrails**: Rotação das 9 atitudes, tratamento offline da API Gemini e proibição de hardcode de chaves secretas.
+* **Fidelidade Arquitetural**: Padrão MVVM com Clean Architecture em Jetpack Compose.
+* **Consistência Visual**: Aderência estrita aos tokens de design e à paleta de cores oficial do Material 3.
+* **Regras de Negócio e Guardrails**: Rotação das 9 atitudes, tratamento offline amigável da API Gemini e proibição de hardcode de chaves secretas.
 
 ---
 
@@ -56,11 +67,14 @@ Para facilitar o acompanhamento do workshop, cada etapa do desenvolvimento está
 # Etapa 1: Setup do projeto, Material Design 3, tema e tokens visuais
 git checkout step-01-setup
 
-# Etapa 2: Diretrizes com AGENTS.md, 9 Atitudes, Telas Compose, Timer e Gemini API
-git checkout step-02-compose-logic
+# Etapa 2: Setup com IA no Android Studio, Telas Compose e esqueleto da arquitetura (stubs)
+git checkout step-02-setup-ai
 
-# Etapa 3: Testes Unitários, Testes de UI (Compose Test) e Pipeline CI/CD
-git checkout step-03-testes-cicd
+# Etapa 3: Diretrizes com AGENTS.md, Regra das 9 Atitudes, Gemini API e i18n
+git checkout step-03-compose-logic
+
+# Etapa 4: Qualidade de Software, Testes Unitários e E2E com Robot Pattern
+git checkout step-04-qualidade-testes
 
 # Versão Completa e Consolidada
 git checkout main
@@ -94,6 +108,10 @@ git checkout main
   ```bash
   ./gradlew testDebugUnitTest
   ```
+* **Executar os Testes de UI (Robot Pattern no Emulador):**
+  ```bash
+  ./gradlew connectedDebugAndroidTest
+  ```
 
 ---
 
@@ -110,7 +128,7 @@ Por boas práticas de segurança e arquitetura em Android, chaves de API **nunca
 4. Ao compilar o projeto (`./gradlew assembleDebug`), o Gradle injetará o valor de forma segura via `BuildConfig.GEMINI_API_KEY` diretamente no serviço `GeminiApiService`.
 5. Execute o app e clique em **✨ Nova Reflexão (Gemini IA)**!
 
-> *Nota: Caso execute o app sem configurar a chave no `local.properties` ou sem conexão de rede, o aplicativo entrará graciosamente em modo offline com reflexões locais inspiradoras.*
+> *Nota: Caso execute o app sem configurar a chave no `local.properties` ou sem conexão de rede, o aplicativo entrará graciosamente em modo offline com reflexões locais inspiradoras no idioma do aparelho.*
 
 ---
 

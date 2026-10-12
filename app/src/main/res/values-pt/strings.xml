@@ -1,14 +1,65 @@
 <resources>
     <string name="app_name">MindfulDays</string>
-    <string name="attitude_counter">Atitude %1$d de 9</string>
-    <string name="generate_reflection">✨ Nova Reflexão (Gemini IA)</string>
-    <string name="start_timer">⏱️ Iniciar Timer de Meditação</string>
-    <string name="settings">⚙️ Configurações</string>
+    <string name="app_title">MINDFULDAYS</string>
+    <string name="attitude_counter">Atitude %1$d de %2$d</string>
+
+    <!-- Home Screen -->
+    <string name="default_reflection">“Respire fundo e traga sua atenção para o momento presente.”</string>
+    <string name="btn_new_reflection">✨ Nova Reflexão (Gemini IA)</string>
+    <string name="btn_start_timer">⏱️ Iniciar Timer de Meditação</string>
+
+    <!-- Timer Screen -->
     <string name="timer_title">Timer de Meditação</string>
-    <string name="play">Iniciar</string>
-    <string name="pause">Pausar</string>
-    <string name="reset">Reiniciar</string>
-    <string name="settings_title">Configurações de Mindfulness</string>
-    <string name="daily_reminder">Lembrete Diário da Atitude</string>
-    <string name="meditation_reminder">Lembrete para Meditar</string>
+    <string name="timer_subtitle">Concentre-se na respiração</string>
+    <string name="timer_session_guided">• SESSÃO GUIADA</string>
+    <string name="timer_status_completed">Concluído</string>
+    <string name="timer_status_running">Em andamento</string>
+    <string name="timer_status_paused">Pausado</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Configurações</string>
+    <string name="settings_section_reminders">Lembretes Diários</string>
+    <string name="settings_daily_reminder">Lembrete da Atitude Diária</string>
+    <string name="settings_meditate_reminder">Lembrete para Meditar</string>
+    <string name="settings_section_about">Sobre o App</string>
+    <string name="settings_version_info">Versão 1.0 • 9 Atitudes de Jon Kabat-Zinn</string>
+
+    <!-- Accessibility Content Descriptions -->
+    <string name="cd_settings">Configurações</string>
+    <string name="cd_back">Voltar</string>
+    <string name="cd_reset">Reiniciar</string>
+    <string name="cd_play">Iniciar</string>
+    <string name="cd_pause">Pausar</string>
+
+    <!-- Offline Fallback -->
+    <string name="offline_reflection">Conectado no modo offline. Pratique a reflexão: Respire fundo e traga sua atenção para o momento presente.</string>
+    <string name="default_fallback_reflection">Acolha o momento presente exatamente como ele se manifesta.</string>
+
+    <!-- The 9 Attitudes -->
+    <string name="attitude_1_name">Mente de Principiante</string>
+    <string name="attitude_1_desc">Olhe para as coisas como se fosse a primeira vez, livre de expectativas.</string>
+
+    <string name="attitude_2_name">Não-Julgamento</string>
+    <string name="attitude_2_desc">Observe seus pensamentos e sentimentos sem rotulá-los como bons ou ruins.</string>
+
+    <string name="attitude_3_name">Aceitação</string>
+    <string name="attitude_3_desc">Reconheça e acolha o momento presente exatamente como ele é.</string>
+
+    <string name="attitude_4_name">Desapego</string>
+    <string name="attitude_4_desc">Deixe ir pensamentos e desejos que tentam prender sua atenção.</string>
+
+    <string name="attitude_5_name">Confiança</string>
+    <string name="attitude_5_desc">Desenvolva uma crença básica em si mesmo e nos seus sinais corporais.</string>
+
+    <string name="attitude_6_name">Não-Esforço</string>
+    <string name="attitude_6_desc">Abandone a necessidade constante de alcançar um resultado imediato.</string>
+
+    <string name="attitude_7_name">Paciência</string>
+    <string name="attitude_7_desc">Compreenda que certas coisas precisam de tempo para se desenvolver.</string>
+
+    <string name="attitude_8_name">Gratidão</string>
+    <string name="attitude_8_desc">Aprecie o momento presente e valorize o que você já possui.</string>
+
+    <string name="attitude_9_name">Generosidade</string>
+    <string name="attitude_9_desc">Ofereça atenção, carinho e presença com o coração aberto.</string>
 </resources>
