@@ -47,6 +47,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import android.media.RingtoneManager
+import androidx.compose.ui.platform.LocalContext
 import dev.mindfuldays.app.R
 import dev.mindfuldays.app.ui.theme.MindfulDaysTheme
 import kotlinx.coroutines.delay
@@ -57,6 +59,7 @@ fun TimerScreen(
     onNavigateBack: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     val totalTimeSeconds = 600 // 10 minutes default
     var timeLeftSeconds by rememberSaveable { mutableIntStateOf(totalTimeSeconds) }
     var isRunning by rememberSaveable { mutableStateOf(false) }
@@ -69,6 +72,12 @@ fun TimerScreen(
             if (timeLeftSeconds == 0) {
                 isRunning = false
                 isCompleted = true
+                try {
+                    val notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                    RingtoneManager.getRingtone(context, notificationUri)?.play()
+                } catch (e: Exception) {
+                    android.util.Log.e("TimerScreen", "Erro ao reproduzir som suave", e)
+                }
             }
         }
     }
