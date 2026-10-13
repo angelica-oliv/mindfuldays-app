@@ -4,13 +4,24 @@ Bem-vindo ao repositório do aplicativo **MindfulDays**, desenvolvido durante o 
 
 ---
 
-## 📱 Protótipos de Interface (Google Stitch)
+## 📱 Design Final do Aplicativo
 
-As telas do aplicativo foram concebidas no **[Google Stitch](https://stitch.withgoogle.com/)**, servindo como referência visual e design tokens para a implementação com Jetpack Compose:
+Capturas de tela reais do aplicativo em execução no dispositivo Android, desenvolvido com **Jetpack Compose** e **Material Design 3**:
 
 | Tela Inicial (Home) | Timer de Meditação | Configurações |
 | :---: | :---: | :---: |
-| <img src="screenshots/home_screen.png" width="220" alt="Tela Inicial do MindfulDays" /> | <img src="screenshots/timer_screen.png" width="220" alt="Timer de Meditação" /> | <img src="screenshots/settings_screen.png" width="220" alt="Tela de Configurações" /> |
+| <img src="screenshots/app_home.png" width="220" alt="Tela Inicial do MindfulDays" /> | <img src="screenshots/app_timer.png" width="220" alt="Timer de Meditação" /> | <img src="screenshots/app_settings.png" width="220" alt="Tela de Configurações" /> |
+
+<details>
+<summary>🎨 Clique para ver os protótipos originais concebidos no Google Stitch</summary>
+
+<br />
+
+| Protótipo: Home | Protótipo: Timer | Protótipo: Configurações |
+| :---: | :---: | :---: |
+| <img src="screenshots/home_screen.png" width="200" alt="Protótipo Home Stitch" /> | <img src="screenshots/timer_screen.png" width="200" alt="Protótipo Timer Stitch" /> | <img src="screenshots/settings_screen.png" width="200" alt="Protótipo Configurações Stitch" /> |
+
+</details>
 
 ---
 
