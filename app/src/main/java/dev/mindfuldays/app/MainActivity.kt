@@ -23,7 +23,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MindfulDaysTheme {
-                MindfulDaysApp()
+                androidx.compose.material3.Surface(
+                    color = androidx.compose.material3.MaterialTheme.colorScheme.background
+                ) {
+                    MindfulDaysApp()
+                }
             }
         }
     }
