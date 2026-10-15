@@ -29,7 +29,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -60,11 +59,13 @@ fun SettingsScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFFBF9F5)
+                    containerColor = MaterialTheme.colorScheme.background,
+                    titleContentColor = MaterialTheme.colorScheme.onBackground,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onBackground
                 )
             )
         },
-        containerColor = Color(0xFFFBF9F5)
+        containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -78,12 +79,12 @@ fun SettingsScreen(
                 Text(
                     text = stringResource(R.string.settings_section_reminders),
                     style = MaterialTheme.typography.titleMedium,
-                    color = Color(0xFF6B8E23),
+                    color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold
                 )
                 Card(
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFFFFFFF)
+                        containerColor = MaterialTheme.colorScheme.surface
                     ),
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 2.dp
@@ -107,7 +108,7 @@ fun SettingsScreen(
                             )
                         }
                         HorizontalDivider(
-                            color = Color(0xFFE8DFD8),
+                            color = MaterialTheme.colorScheme.outlineVariant,
                             thickness = 1.dp,
                             modifier = Modifier.padding(vertical = 12.dp)
                         )
@@ -135,12 +136,12 @@ fun SettingsScreen(
                 Text(
                     text = stringResource(R.string.settings_section_about),
                     style = MaterialTheme.typography.titleMedium,
-                    color = Color(0xFF6B8E23),
+                    color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold
                 )
                 Card(
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFFFFFFF)
+                        containerColor = MaterialTheme.colorScheme.surface
                     ),
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 2.dp

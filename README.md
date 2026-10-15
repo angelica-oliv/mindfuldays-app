@@ -6,11 +6,17 @@ Bem-vindo ao repositório do aplicativo **MindfulDays**, desenvolvido durante o 
 
 ## 📱 Design Final do Aplicativo
 
-Capturas de tela reais do aplicativo em execução no dispositivo Android, desenvolvido com **Jetpack Compose** e **Material Design 3**:
+Capturas de tela reais do aplicativo em execução no dispositivo Android, desenvolvido com **Jetpack Compose** e **Material Design 3**, com suporte nativo a **Modo Claro (Light Mode)** e **Modo Escuro (Dark Mode)**:
 
+### Modo Claro (Light Mode)
 | Tela Inicial (Home) | Timer de Meditação | Configurações |
 | :---: | :---: | :---: |
-| <img src="screenshots/app_home.png" width="220" alt="Tela Inicial do MindfulDays" /> | <img src="screenshots/app_timer.png" width="220" alt="Timer de Meditação" /> | <img src="screenshots/app_settings.png" width="220" alt="Tela de Configurações" /> |
+| <img src="screenshots/app_home.png" width="220" alt="Tela Inicial do MindfulDays - Modo Claro" /> | <img src="screenshots/app_timer.png" width="220" alt="Timer de Meditação - Modo Claro" /> | <img src="screenshots/app_settings.png" width="220" alt="Tela de Configurações - Modo Claro" /> |
+
+### Modo Escuro (Dark Mode)
+| Tela Inicial (Home) | Timer de Meditação | Configurações |
+| :---: | :---: | :---: |
+| <img src="screenshots/dark_home.png" width="220" alt="Tela Inicial do MindfulDays - Modo Escuro" /> | <img src="screenshots/dark_timer.png" width="220" alt="Timer de Meditação - Modo Escuro" /> | <img src="screenshots/dark_settings.png" width="220" alt="Tela de Configurações - Modo Escuro" /> |
 
 <details>
 <summary>🎨 Clique para ver os protótipos originais concebidos no Google Stitch</summary>
@@ -41,23 +47,37 @@ O **MindfulDays** é um aplicativo minimalista e sereno de meditação guiada ba
 ### Principais Funcionalidades:
 * **Atitude do Dia**: Rotação diária automática entre as 9 atitudes fundamentais baseada no dia do ano (`(dayOfYear - 1) % 9`).
 * **Reflexões com Gemini AI**: Geração de reflexões personalizadas em tempo real via **Google Gemini API** (`gemini-3.8-flash`), adaptadas ao idioma do sistema (Português, Inglês ou Espanhol).
-* **Timer de Meditação**: Contador circular minimalista de 10 minutos com controles de Play, Pause e Reset.
+* **Timer de Meditação**: Contador circular minimalista de 10 minutos com controles de Play, Pause e Reset, acompanhado de sino suave de conclusão.
 * **Configurações & Lembretes**: Notificações e lembretes diários para manter a prática ativa.
 * **Internacionalização (i18n)**: Suporte completo e nativo a **Português**, **Inglês** e **Espanhol** via `strings.xml`.
 * **Qualidade de Software**: Suíte de testes unitários com JUnit e testes E2E com Compose Robot Pattern.
+* **Suporte Completo a Dark Mode**: Experiência visual relaxante com paleta florestal noturna de alto contraste.
 
 ---
 
-## 🌿 Paleta de Cores (Material Design 3)
+## 🌿 Paleta de Cores e Temas (Material Design 3)
 
-| Token | Cor | Hex |
+O aplicativo conta com suporte nativo completo aos modos Claro e Escuro, respeitando os tokens semânticos do **Material Design 3**:
+
+### Modo Claro (Light Mode)
+| Token | Descrição | Hex |
 | :--- | :--- | :--- |
 | **Primary** | Verde Sálvia | `#6B8E23` |
-| **Primary Light** | Sálvia Claro | `#8FA853` |
+| **Primary Container** | Sálvia Suave | `#8FA853` |
 | **Secondary** | Areia Muted | `#E8DFD8` |
 | **Background** | Off-White Calmo | `#FBF9F5` |
 | **Surface** | Branco Puro | `#FFFFFF` |
 | **Text / OnSurface** | Verde Floresta Escuro | `#2C3E35` |
+
+### Modo Escuro (Dark Mode)
+| Token | Descrição | Hex |
+| :--- | :--- | :--- |
+| **Primary** | Sálvia Luminoso | `#A8C673` |
+| **Primary Container** | Floresta Noturno Elevado | `#2E4239` |
+| **Secondary** | Sálvia Muted Suave | `#A3B5A8` |
+| **Background** | Floresta Noturno Profundo | `#15201A` |
+| **Surface** | Floresta Noturno Elevado | `#22322A` |
+| **Text / OnSurface** | Off-White Claro | `#F1EFEA` |
 
 ---
 

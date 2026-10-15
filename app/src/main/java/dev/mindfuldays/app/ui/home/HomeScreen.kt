@@ -1,20 +1,42 @@
 package dev.mindfuldays.app.ui.home
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.mindfuldays.app.R
 import dev.mindfuldays.app.data.model.MindfulnessAttitude
@@ -62,7 +84,7 @@ fun HomeScreenContent(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xFFFBF9F5))
+            .background(MaterialTheme.colorScheme.background)
             .statusBarsPadding()
             .navigationBarsPadding()
             .padding(24.dp),
@@ -82,7 +104,7 @@ fun HomeScreenContent(
                 Text(
                     text = stringResource(R.string.app_title),
                     style = MaterialTheme.typography.labelLarge,
-                    color = Color(0xFF6B8E23),
+                    color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
@@ -94,7 +116,8 @@ fun HomeScreenContent(
             IconButton(onClick = onNavigateToSettings) {
                 Icon(
                     imageVector = Icons.Default.Settings,
-                    contentDescription = stringResource(R.string.cd_settings)
+                    contentDescription = stringResource(R.string.cd_settings),
+                    tint = MaterialTheme.colorScheme.onBackground
                 )
             }
         }
@@ -105,7 +128,7 @@ fun HomeScreenContent(
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
             colors = CardDefaults.elevatedCardColors(
-                containerColor = Color(0xFFFFFFFF)
+                containerColor = MaterialTheme.colorScheme.surface
             ),
             elevation = CardDefaults.elevatedCardElevation(
                 defaultElevation = 4.dp
@@ -127,7 +150,7 @@ fun HomeScreenContent(
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 HorizontalDivider(
-                    color = Color(0xFFE8DFD8),
+                    color = MaterialTheme.colorScheme.outlineVariant,
                     thickness = 1.dp
                 )
                 Text(
@@ -140,6 +163,10 @@ fun HomeScreenContent(
                 Button(
                     onClick = onGenerateAiReflection,
                     enabled = !isLoadingAi,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    ),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     if (isLoadingAi) {
@@ -164,6 +191,10 @@ fun HomeScreenContent(
         // Ação de Navegação para o Timer
         OutlinedButton(
             onClick = onNavigateToTimer,
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+            colors = ButtonDefaults.outlinedButtonColors(
+                contentColor = MaterialTheme.colorScheme.primary
+            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 8.dp)
