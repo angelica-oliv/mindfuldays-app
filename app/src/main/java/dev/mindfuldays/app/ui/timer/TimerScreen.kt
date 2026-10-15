@@ -1,5 +1,7 @@
 package dev.mindfuldays.app.ui.timer
 
+import android.media.RingtoneManager
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,7 +30,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import java.util.Locale
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -40,18 +41,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import android.media.RingtoneManager
-import androidx.compose.ui.platform.LocalContext
 import dev.mindfuldays.app.R
 import dev.mindfuldays.app.ui.theme.MindfulDaysTheme
 import kotlinx.coroutines.delay
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -93,6 +93,9 @@ fun TimerScreen(
     val formattedTime = String.format(Locale.ROOT, "%02d:%02d", minutes, seconds)
     val progress = if (totalTimeSeconds > 0) timeLeftSeconds.toFloat() / totalTimeSeconds.toFloat() else 0f
 
+    val trackColor = MaterialTheme.colorScheme.surfaceVariant
+    val progressColor = MaterialTheme.colorScheme.primary
+
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -107,11 +110,13 @@ fun TimerScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFFBF9F5)
+                    containerColor = MaterialTheme.colorScheme.background,
+                    titleContentColor = MaterialTheme.colorScheme.onBackground,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onBackground
                 )
             )
         },
-        containerColor = Color(0xFFFBF9F5)
+        containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -135,7 +140,7 @@ fun TimerScreen(
                 Text(
                     text = stringResource(R.string.timer_session_guided),
                     style = MaterialTheme.typography.bodyMedium,
-                    color = Color(0xFF6B8E23),
+                    color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -156,7 +161,7 @@ fun TimerScreen(
 
                     // Track arc
                     drawArc(
-                        color = Color(0xFFE8DFD8),
+                        color = trackColor,
                         startAngle = -90f,
                         sweepAngle = 360f,
                         useCenter = false,
@@ -167,7 +172,7 @@ fun TimerScreen(
 
                     // Progress arc
                     drawArc(
-                        color = Color(0xFF6B8E23),
+                        color = progressColor,
                         startAngle = -90f,
                         sweepAngle = 360f * progress,
                         useCenter = false,
@@ -191,7 +196,7 @@ fun TimerScreen(
                     Text(
                         text = statusText,
                         style = MaterialTheme.typography.labelLarge,
-                        color = Color(0xFF6B8E23),
+                        color = MaterialTheme.colorScheme.primary,
                         fontWeight = FontWeight.Medium
                     )
                 }
@@ -212,6 +217,10 @@ fun TimerScreen(
                         isCompleted = false
                         timeLeftSeconds = totalTimeSeconds
                     },
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+                    colors = IconButtonDefaults.outlinedIconButtonColors(
+                        contentColor = MaterialTheme.colorScheme.onBackground
+                    ),
                     modifier = Modifier.size(56.dp)
                 ) {
                     Icon(
@@ -236,8 +245,8 @@ fun TimerScreen(
                     },
                     modifier = Modifier.size(64.dp),
                     colors = IconButtonDefaults.filledIconButtonColors(
-                        containerColor = Color(0xFF6B8E23),
-                        contentColor = Color.White
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
                     )
                 ) {
                     Icon(

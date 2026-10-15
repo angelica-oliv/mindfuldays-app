@@ -8,26 +8,41 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val LightColorScheme = lightColorScheme(
     primary = SageGreen,
+    onPrimary = PureWhite,
+    primaryContainer = SageGreenLight,
+    onPrimaryContainer = PureWhite,
     secondary = MutedSand,
+    onSecondary = DarkForestGreen,
     background = WarmOffWhite,
-    surface = PureWhite,
     onBackground = DarkForestGreen,
+    surface = PureWhite,
     onSurface = DarkForestGreen,
+    surfaceVariant = Color(0xFFF2ECE6),
+    onSurfaceVariant = MutedForestGreen,
     outline = MutedSand,
     outlineVariant = MutedSand
 )
 
 private val DarkColorScheme = darkColorScheme(
-    primary = SageGreen,
-    secondary = MutedSand,
-    background = DarkForestGreen,
-    surface = DarkForestGreen,
-    onBackground = WarmOffWhite,
-    onSurface = WarmOffWhite
+    primary = LuminousSage,
+    onPrimary = Color(0xFF1E3500),
+    primaryContainer = ForestSurfaceVariant,
+    onPrimaryContainer = LuminousSage,
+    secondary = SoftMutedSage,
+    onSecondary = ForestNight,
+    background = ForestNight,
+    onBackground = WarmOffWhiteText,
+    surface = ForestSurface,
+    onSurface = WarmOffWhiteText,
+    surfaceVariant = ForestSurfaceVariant,
+    onSurfaceVariant = SoftMutedSage,
+    outline = ForestOutline,
+    outlineVariant = ForestOutline
 )
 
 @Composable
